@@ -5,7 +5,7 @@
 
 
         <url>${splunk.url=https://localhost:8088}</url>
-        <token>${ab3e8e26-a8ed-406a-8424-e519c03e361f}</token>
+        <token>${}</token>
         <index>${instant_order_dev}</index>
         <source>${instant_order_logs}</source>
         <sourcetype>${_json}</sourcetype>

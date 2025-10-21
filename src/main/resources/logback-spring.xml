@@ -5,7 +5,7 @@
 
     <appender name="SPLUNK" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
         <url>http://localhost:8088</url> <!-- IMPORTANT: use HTTP since HTTPS failed -->
-        <token>ab3e8e26-a8ed-406a-8424-e519c03e361f</token>
+        <token></token>
         <index>instant_order_dev</index> <!-- or 'main' for testing -->
         <source>instant_order_logs</source>
         <sourcetype>log4j</sourcetype>
