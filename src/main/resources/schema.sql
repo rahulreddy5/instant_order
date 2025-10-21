@@ -1,0 +1,1 @@
+-- insert into items (item_Id, item_Name, item_Price) values (1, 'Idly', 5.0);

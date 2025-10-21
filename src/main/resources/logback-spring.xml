@@ -1,0 +1,30 @@
+<configuration>
+
+    <logger name="com.splunk.logging" level="DEBUG" />
+    <logger name="com.splunk" level="DEBUG" />
+
+    <appender name="SPLUNK" class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+        <url>http://localhost:8088</url> <!-- IMPORTANT: use HTTP since HTTPS failed -->
+        <token>ab3e8e26-a8ed-406a-8424-e519c03e361f</token>
+        <index>instant_order_dev</index> <!-- or 'main' for testing -->
+        <source>instant_order_logs</source>
+        <sourcetype>log4j</sourcetype>
+        <disableCertificateValidation>true</disableCertificateValidation>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <!-- <appender-ref ref="CONSOLE" /> -->
+        <appender-ref ref="SPLUNK" />
+    </root>
+
+</configuration>
